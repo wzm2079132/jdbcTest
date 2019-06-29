@@ -52,8 +52,8 @@ public class JdbcMethod {
         return result;
     }
 
-
-    public static <T> List<T> executeQuery(String sql,RowMap<T> rowMap,Object...objects){
+    //  查询封装
+    public static <T> List<T> executeQuery(String sql,RowMap<T> rowMap,Object... objects){
         List<T> list=new ArrayList<>();
         conn=getConn();
         try {
@@ -61,10 +61,17 @@ public class JdbcMethod {
             for (int i=0;i<objects.length;i++){
                 pstm.setObject(i+1,objects[i]);
             }
+            rSet=pstm.executeQuery();
+            //将 结果集转换成对象T
+            while (rSet.next()){
+                T t=rowMap.rowMap(rSet);
+                list.add(t);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return list;
     }
 
 
