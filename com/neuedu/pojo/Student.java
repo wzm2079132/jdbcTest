@@ -10,6 +10,15 @@ public class Student {
     private int sheight;
     private int sweight;
     private String sbirthday;
+    private int scon;
+
+    public int getScon() {
+        return scon;
+    }
+
+    public void setScon(int scon) {
+        this.scon = scon;
+    }
 
     public Integer getId() {
         return id;
@@ -91,7 +100,7 @@ public class Student {
         this.spsw = spsw;
     }
 
-    public Student(Integer id, String sno, String sname, String spsw, int sage, String ssex, int sheight, int sweight, String sbirthday) {
+    public Student(Integer id, String sno, String sname, String spsw, int sage, String ssex, int sheight, int sweight, String sbirthday,int scon) {
         this.id = id;
         this.sno = sno;
         this.sname = sname;
@@ -101,6 +110,7 @@ public class Student {
         this.sheight = sheight;
         this.sweight = sweight;
         this.sbirthday = sbirthday;
+        this.scon=scon;
     }
 
     @Override
@@ -115,6 +125,7 @@ public class Student {
                 ", sheight=" + sheight +
                 ", sweight=" + sweight +
                 ", sbirthday='" + sbirthday + '\'' +
+                ", scon=" + scon +
                 '}';
     }
 }

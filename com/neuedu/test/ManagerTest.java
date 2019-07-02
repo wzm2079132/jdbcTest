@@ -4,6 +4,6 @@ public class ManagerTest {
     public static void main(String[] args) {
 
         StudentManager s=new StudentManager();
-        s.showMenu();
+        s.login();
     }
 }
